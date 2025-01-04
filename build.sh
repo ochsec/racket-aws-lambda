@@ -6,7 +6,7 @@ RACKET_VERSION="8.15"
 AWS_PROFILE="default"
 ECR_REPO="racket-lambda"
 IMAGE_TAG="latest"
-HANDLER_FILE="${HANDLER_FILE:-lambda-handler.rkt}"
+HANDLER_FILE="${HANDLER_FILE:=lambda-handler.rkt}"
 
 # Parse command-line arguments
 while [[ "$#" -gt 0 ]]; do
