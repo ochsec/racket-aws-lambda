@@ -18,6 +18,10 @@ This repository provides a containerized AWS Lambda runtime for Racket, enabling
 - AWS Account with ECR and Lambda permissions
 - Racket development experience
 
+## Version
+
+Current version: 1.0.0
+
 ## Usage
 
 ### Building the Container

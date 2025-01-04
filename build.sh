@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Set variables
+VERSION="1.0.0"
 RACKET_VERSION="8.15"
 REGION="us-east-1"
 ACCOUNT_ID=$(aws sts get-login-password --region $REGION)
