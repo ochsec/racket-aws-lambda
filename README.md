@@ -43,9 +43,17 @@ Current version: 1.1.0
 
    Arguments:
    - `-p, --profile, -P, --aws-profile`: AWS profile to use (default: "default")
+     * Allows specifying a different AWS credential profile
+     * Useful for managing multiple AWS account credentials
    - `-r, --region, -R, --aws-region`: AWS region for ECR repository (default: "us-east-1")
+     * Specifies the AWS region where the ECR repository will be created
+     * Helps manage multi-region deployments
    - `-f, --handler, -H, --handler-file`: Racket handler file to use (default: "lambda-handler.rkt")
+     * Select a custom Racket handler file for your Lambda function
+     * Supports switching between different handler implementations
    - `-n, --name`: ECR repository name (default: "racket-lambda")
+     * Customize the name of the ECR repository
+     * Enables multiple Lambda function repositories in the same account
 
    Examples:
    ```bash
@@ -56,6 +64,11 @@ Current version: 1.1.0
    ./build.sh -n racket-dynamic-lambda  # Uses custom repository name
    ./build.sh -p mycompany -r us-west-2 -f dynamic-handler.rkt -n racket-dynamic-lambda  # Specifies all options
    ```
+
+   Notes:
+   - The script supports flexible configuration for different AWS environments
+   - Easily switch between AWS profiles, regions, and handler implementations
+   - Supports advanced use cases like multi-account and multi-region deployments
 
 ### Deploying to AWS Lambda
 
