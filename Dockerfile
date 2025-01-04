@@ -26,6 +26,7 @@ ENV HANDLER_FILE=lambda-handler.rkt
 
 # Copy Lambda handler and dependencies
 COPY "${HANDLER_FILE}" lambda-handler.rkt
+COPY dynamic-handler.rkt .
 COPY bootstrap .
 RUN chmod 755 bootstrap
 

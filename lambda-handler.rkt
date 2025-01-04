@@ -30,4 +30,4 @@
     event))
 
 ;; Provide the handler for external use
-(provide handle-event)
+(provide handle-dynamic-event)
