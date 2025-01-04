@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set default variables
-VERSION="1.0.0"
+VERSION="1.1.0"
 RACKET_VERSION="8.15"
 AWS_PROFILE="default"
 ECR_REPO="racket-lambda"

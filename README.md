@@ -20,7 +20,7 @@ This repository provides a containerized AWS Lambda runtime for Racket, enabling
 
 ## Version
 
-Current version: 1.0.0
+Current version: 1.1.0
 
 ## Usage
 
