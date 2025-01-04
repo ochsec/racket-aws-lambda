@@ -64,6 +64,22 @@ Current version: 1.0.0
 
 ### Customizing the Handler
 
+#### Installing Additional Racket Packages
+
+In the Dockerfile, there's a commented-out line for installing Racket packages:
+```dockerfile
+# RUN raco pkg install --auto <your-packages-here>
+```
+To add external Racket packages:
+1. Uncomment the line
+2. Replace `<your-packages-here>` with the package name(s) you want to install
+3. Rebuild the Docker image
+
+Example:
+```dockerfile
+RUN raco pkg install --auto web-server
+```
+
 Two handler implementations are provided:
 
 1. `lambda-handler.rkt`: A generic event handler with basic logging and error handling.
