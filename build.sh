@@ -12,8 +12,11 @@ HANDLER_FILE="lambda-handler.rkt"
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         -p|--profile) AWS_PROFILE="$2"; shift ;;
+        -P|--aws-profile) AWS_PROFILE="$2"; shift ;;
         -r|--region) REGION="$2"; shift ;;
-        -h|--handler) HANDLER_FILE="$2"; shift ;;
+        -R|--aws-region) REGION="$2"; shift ;;
+        -f|--handler) HANDLER_FILE="$2"; shift ;;
+        -H|--handler-file) HANDLER_FILE="$2"; shift ;;
         -n|--name) ECR_REPO="$2"; shift ;;
         *) echo "Unknown parameter passed: $1"; exit 1 ;;
     esac

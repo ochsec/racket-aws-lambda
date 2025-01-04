@@ -35,13 +35,16 @@ Current version: 1.1.0
 
 3. Run the build script with optional arguments:
    ```bash
-   ./build.sh [-p|--profile PROFILE] [-r|--region REGION] [-h|--handler HANDLER_FILE] [-n|--name REPO_NAME]
+   ./build.sh [-p|--profile PROFILE] [-P|--aws-profile PROFILE] 
+              [-r|--region REGION] [-R|--aws-region REGION] 
+              [-f|--handler HANDLER_FILE] [-H|--handler-file HANDLER_FILE] 
+              [-n|--name REPO_NAME]
    ```
 
    Arguments:
-   - `-p, --profile`: AWS profile to use (default: "default")
-   - `-r, --region`: AWS region for ECR repository (default: "us-east-1")
-   - `-h, --handler`: Racket handler file to use (default: "lambda-handler.rkt")
+   - `-p, --profile, -P, --aws-profile`: AWS profile to use (default: "default")
+   - `-r, --region, -R, --aws-region`: AWS region for ECR repository (default: "us-east-1")
+   - `-f, --handler, -H, --handler-file`: Racket handler file to use (default: "lambda-handler.rkt")
    - `-n, --name`: ECR repository name (default: "racket-lambda")
 
    Examples:
@@ -49,9 +52,9 @@ Current version: 1.1.0
    ./build.sh                  # Uses default profile, us-east-1, lambda-handler.rkt, racket-lambda repo
    ./build.sh -p mycompany     # Uses mycompany profile, us-east-1, lambda-handler.rkt, racket-lambda repo
    ./build.sh -r us-west-2     # Uses default profile, us-west-2, lambda-handler.rkt, racket-lambda repo
-   ./build.sh -h dynamic-handler.rkt  # Uses dynamic handler
+   ./build.sh -f dynamic-handler.rkt  # Uses dynamic handler
    ./build.sh -n racket-dynamic-lambda  # Uses custom repository name
-   ./build.sh -p mycompany -r us-west-2 -h dynamic-handler.rkt -n racket-dynamic-lambda  # Specifies all options
+   ./build.sh -p mycompany -r us-west-2 -f dynamic-handler.rkt -n racket-dynamic-lambda  # Specifies all options
    ```
 
 ### Deploying to AWS Lambda
