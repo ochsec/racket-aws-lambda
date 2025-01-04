@@ -42,7 +42,27 @@ This repository provides a containerized AWS Lambda runtime for Racket, enabling
 
 ### Customizing the Handler
 
-Modify `lambda-handler.rkt` to implement your specific Lambda function logic.
+Two handler implementations are provided:
+
+1. `lambda-handler.rkt`: A generic event handler with basic logging and error handling.
+2. `dynamic-handler.rkt`: A homoiconic handler that allows dynamic code execution with strict sandboxing.
+
+#### Dynamic Handler Usage Example
+
+The `dynamic-handler.rkt` enables executing Racket code dynamically:
+
+```json
+{
+  "program": "(lambda (x) (+ x 10))",
+  "data": 5
+}
+```
+
+This would return `15`. The handler provides:
+- Secure code evaluation
+- CPU and memory limits
+- Structured logging
+- Error handling
 
 ## Contributing
 
