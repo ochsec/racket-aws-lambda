@@ -35,19 +35,21 @@ Current version: 1.1.0
 
 3. Run the build script with optional arguments:
    ```bash
-   ./build.sh [-p|--profile PROFILE] [-r|--region REGION]
+   ./build.sh [-p|--profile PROFILE] [-r|--region REGION] [-h|--handler HANDLER_FILE]
    ```
 
    Arguments:
    - `-p, --profile`: AWS profile to use (default: "default")
    - `-r, --region`: AWS region for ECR repository (default: "us-east-1")
+   - `-h, --handler`: Racket handler file to use (default: "lambda-handler.rkt")
 
    Examples:
    ```bash
-   ./build.sh                  # Uses default profile and us-east-1
-   ./build.sh -p mycompany     # Uses mycompany profile, us-east-1
-   ./build.sh -r us-west-2     # Uses default profile, us-west-2
-   ./build.sh -p mycompany -r us-west-2  # Specifies both profile and region
+   ./build.sh                  # Uses default profile, us-east-1, lambda-handler.rkt
+   ./build.sh -p mycompany     # Uses mycompany profile, us-east-1, lambda-handler.rkt
+   ./build.sh -r us-west-2     # Uses default profile, us-west-2, lambda-handler.rkt
+   ./build.sh -h dynamic-handler.rkt  # Uses dynamic handler
+   ./build.sh -p mycompany -r us-west-2 -h dynamic-handler.rkt  # Specifies all options
    ```
 
 ### Deploying to AWS Lambda

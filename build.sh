@@ -6,16 +6,24 @@ RACKET_VERSION="8.15"
 AWS_PROFILE="default"
 ECR_REPO="racket-lambda"
 IMAGE_TAG="latest"
+HANDLER_FILE="lambda-handler.rkt"
 
 # Parse command-line arguments
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         -p|--profile) AWS_PROFILE="$2"; shift ;;
         -r|--region) REGION="$2"; shift ;;
+        -h|--handler) HANDLER_FILE="$2"; shift ;;
         *) echo "Unknown parameter passed: $1"; exit 1 ;;
     esac
     shift
 done
+
+# Validate handler file
+if [[ ! -f "$HANDLER_FILE" ]]; then
+    echo "Error: Handler file '$HANDLER_FILE' not found."
+    exit 1
+fi
 
 # Set default region if not specified
 REGION="${REGION:-us-east-1}"

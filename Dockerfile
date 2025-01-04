@@ -22,7 +22,7 @@ RUN wget https://github.com/aws/aws-lambda-runtime-interface-emulator/releases/l
 WORKDIR /function
 
 # Copy Lambda handler and dependencies
-COPY lambda-handler.rkt .
+COPY ${HANDLER_FILE} lambda-handler.rkt
 COPY bootstrap .
 RUN chmod 755 bootstrap
 
