@@ -27,9 +27,21 @@ Current version: 1.0.0
 ### Building the Container
 
 1. Configure AWS credentials
-2. Run the build script:
+2. Run the build script with optional arguments:
    ```bash
-   ./build.sh
+   ./build.sh [-p|--profile PROFILE] [-r|--region REGION]
+   ```
+
+   Arguments:
+   - `-p, --profile`: AWS profile to use (default: "default")
+   - `-r, --region`: AWS region for ECR repository (default: "us-east-1")
+
+   Examples:
+   ```bash
+   ./build.sh                  # Uses default profile and us-east-1
+   ./build.sh -p mycompany     # Uses mycompany profile, us-east-1
+   ./build.sh -r us-west-2     # Uses default profile, us-west-2
+   ./build.sh -p mycompany -r us-west-2  # Specifies both profile and region
    ```
 
 ### Deploying to AWS Lambda
