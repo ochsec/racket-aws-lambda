@@ -27,7 +27,7 @@ COPY bootstrap .
 RUN chmod 755 bootstrap
 
 # Install any Racket package dependencies
-RUN raco pkg install --auto <your-packages-here>
+# RUN raco pkg install --auto <your-packages-here>
 
 # Set the CMD to use the bootstrap script
 CMD ["/function/bootstrap"]
