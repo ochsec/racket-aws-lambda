@@ -14,6 +14,7 @@ while [[ "$#" -gt 0 ]]; do
         -p|--profile) AWS_PROFILE="$2"; shift ;;
         -r|--region) REGION="$2"; shift ;;
         -h|--handler) HANDLER_FILE="$2"; shift ;;
+        -n|--name) ECR_REPO="$2"; shift ;;
         *) echo "Unknown parameter passed: $1"; exit 1 ;;
     esac
     shift
