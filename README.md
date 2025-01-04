@@ -27,7 +27,13 @@ Current version: 1.0.0
 ### Building the Container
 
 1. Configure AWS credentials
-2. Run the build script with optional arguments:
+2. Create ECR repository (if not already exists):
+   ```bash
+   aws ecr create-repository --repository-name racket-lambda --region YOUR_REGION
+   ```
+   Note: Replace `YOUR_REGION` with your desired AWS region.
+
+3. Run the build script with optional arguments:
    ```bash
    ./build.sh [-p|--profile PROFILE] [-r|--region REGION]
    ```
