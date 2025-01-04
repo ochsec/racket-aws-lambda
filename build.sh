@@ -3,7 +3,6 @@
 # Set default variables
 VERSION="1.0.0"
 RACKET_VERSION="8.15"
-REGION="us-east-1"
 AWS_PROFILE="default"
 ECR_REPO="racket-lambda"
 IMAGE_TAG="latest"
@@ -17,6 +16,9 @@ while [[ "$#" -gt 0 ]]; do
     esac
     shift
 done
+
+# Set default region if not specified
+REGION="${REGION:-us-east-1}"
 
 # Use the specified AWS profile
 ACCOUNT_ID=$(AWS_PROFILE=$AWS_PROFILE aws sts get-caller-identity --query Account --output text)
