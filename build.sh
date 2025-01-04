@@ -48,4 +48,4 @@ docker build -t $ECR_REPO:$IMAGE_TAG .
 
 # Tag and push image
 docker tag $ECR_REPO:$IMAGE_TAG $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$ECR_REPO:$IMAGE_TAG
-AWS_PROFILE=$AWS_PROFILE aws ecr push-image $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$ECR_REPO:$IMAGE_TAG
+docker push $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$ECR_REPO:$IMAGE_TAG
