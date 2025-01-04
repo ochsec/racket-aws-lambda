@@ -6,7 +6,7 @@ RUN yum update -y && \
     yum install -y wget tar gzip which gcc make
 
 # Install Racket
-ENV RACKET_VERSION=8.9
+ENV RACKET_VERSION=8.15
 RUN wget https://download.racket-lang.org/releases/${RACKET_VERSION}/installers/racket-minimal-${RACKET_VERSION}-x86_64-linux-cs.tar.gz && \
     tar -xzf racket-minimal-${RACKET_VERSION}-x86_64-linux-cs.tar.gz -C /opt && \
     rm racket-minimal-${RACKET_VERSION}-x86_64-linux-cs.tar.gz

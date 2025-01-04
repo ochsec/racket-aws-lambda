@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set variables
-RACKET_VERSION="8.9"
+RACKET_VERSION="8.15"
 REGION="us-east-1"
 ACCOUNT_ID=$(aws sts get-login-password --region $REGION)
 ECR_REPO="racket-lambda"
