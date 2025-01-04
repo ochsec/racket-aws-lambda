@@ -21,6 +21,9 @@ RUN wget https://github.com/aws/aws-lambda-runtime-interface-emulator/releases/l
 # Set working directory
 WORKDIR /function
 
+# Set a default handler file if not provided
+ENV HANDLER_FILE=lambda-handler.rkt
+
 # Copy Lambda handler and dependencies
 COPY "${HANDLER_FILE}" lambda-handler.rkt
 COPY bootstrap .
