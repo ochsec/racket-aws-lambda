@@ -7,9 +7,9 @@ RUN yum update -y && \
 
 # Install Racket
 ENV RACKET_VERSION=8.15
-RUN wget https://download.racket-lang.org/releases/${RACKET_VERSION}/installers/racket-minimal-${RACKET_VERSION}-x86_64-linux-cs.tar.gz && \
-    tar -xzf racket-minimal-${RACKET_VERSION}-x86_64-linux-cs.tar.gz -C /opt && \
-    rm racket-minimal-${RACKET_VERSION}-x86_64-linux-cs.tar.gz
+RUN wget https://download.racket-lang.org/releases/${RACKET_VERSION}/installers/racket-minimal-${RACKET_VERSION}-x86_64-linux-cs.tgz && \
+    tar -xzf racket-minimal-${RACKET_VERSION}-x86_64-linux-cs.tgz -C /opt && \
+    rm racket-minimal-${RACKET_VERSION}-x86_64-linux-cs.tgz
 
 # Add Racket to PATH
 ENV PATH="/opt/racket/bin:${PATH}"
