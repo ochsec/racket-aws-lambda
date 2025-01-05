@@ -35,9 +35,12 @@ REGION="${REGION:-us-east-1}"
 # Use the specified AWS profile
 ACCOUNT_ID=$(AWS_PROFILE=$AWS_PROFILE aws sts get-caller-identity --query Account --output text)
 
+# Validate and normalize the region
+REGION=$(echo "$REGION" | tr '[:upper:]' '[:lower:]')
+
 # Login to ECR using the specified profile (non-interactive)
 AWS_PROFILE=$AWS_PROFILE aws ecr get-login-password --region $REGION | \
-    docker login --username AWS --password-stdin $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com --no-include-email
+    docker login --username AWS --password-stdin $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com
 
 # Create ECR repository if not exists
 AWS_PROFILE=$AWS_PROFILE aws ecr describe-repositories --repository-names $ECR_REPO || \
