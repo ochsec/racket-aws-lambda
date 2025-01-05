@@ -1,2 +1,4 @@
 #!/bin/bash
 exec /opt/racket/bin/racket dynamic-handler.rkt
+#!/bin/bash
+exec /opt/racket/bin/racket dynamic-handler.rkt
