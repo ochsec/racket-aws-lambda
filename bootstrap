@@ -1,2 +1,18 @@
 #!/bin/bash
-exec /opt/racket/bin/racket dynamic-handler.rkt
+set -euo pipefail
+
+# Optional: Add debug logging
+echo "Starting Lambda runtime..."
+
+# Ensure the handler is executable
+chmod +x /function/dynamic-handler.rkt
+
+# Use AWS Lambda Runtime Interface Client if needed
+if [ -f "/usr/local/bin/aws-lambda-rie" ]; then
+    if [ "${AWS_LAMBDA_RUNTIME_API}" = "" ]; then
+        exec /usr/local/bin/aws-lambda-rie /opt/racket/bin/racket /function/dynamic-handler.rkt
+    fi
+fi
+
+# Primary Lambda execution
+exec /opt/racket/bin/racket /function/dynamic-handler.rkt

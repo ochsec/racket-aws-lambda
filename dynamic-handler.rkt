@@ -54,14 +54,15 @@
       (log-event 'INFO (format "Execution result: ~a" result))
       result)))
 
-;; Provide the handler for external use
-(provide handle-dynamic-event)
 #lang racket/base
 
 (require json
          racket/contract
          racket/format
          racket/sandbox)
+
+;; Explicitly export the handler
+(provide handle-dynamic-event)
 
 ;; Secure evaluation function with strict sandboxing
 (define (safe-eval-program program data)
