@@ -61,8 +61,9 @@
          racket/format
          racket/sandbox)
 
-;; Explicitly export the handler
-(provide handle-dynamic-event)
+;; AWS Lambda entry point
+(define (lambda-handler event context)
+  (handle-dynamic-event event context))
 
 ;; Secure evaluation function with strict sandboxing
 (define (safe-eval-program program data)
@@ -77,7 +78,7 @@
            (eval-result data)
            eval-result)))))
 
-;; AWS Lambda logging function (reused from previous handler)
+;; AWS Lambda logging function
 (define (log-event level message)
   (displayln 
    (jsexpr->string 
@@ -113,5 +114,5 @@
       (log-event 'INFO (format "Execution result: ~a" result))
       result)))
 
-;; Provide the handler for external use
-(provide handle-dynamic-event)
+;; Provide the handlers for external use
+(provide lambda-handler handle-dynamic-event)

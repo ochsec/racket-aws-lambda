@@ -36,6 +36,8 @@ RUN chmod 755 bootstrap
 # RUN raco pkg install --auto <your-packages-here>
 
 # Set the CMD to use the bootstrap script
+# Explicitly set the handler path
+ENV AWS_LAMBDA_HANDLER_FILE=/function/dynamic-handler.rkt
 CMD ["/function/bootstrap"]
 # Use Amazon Linux 2 as base image
 FROM amazonlinux:2

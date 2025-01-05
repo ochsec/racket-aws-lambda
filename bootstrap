@@ -15,4 +15,4 @@ if [ -f "/usr/local/bin/aws-lambda-rie" ]; then
 fi
 
 # Primary Lambda execution
-exec /opt/racket/bin/racket /function/dynamic-handler.rkt
+exec /opt/racket/bin/racket -e '(require "dynamic-handler.rkt" (only-in "dynamic-handler.rkt" lambda-handler))' -e '(lambda-handler (read) (read))'
